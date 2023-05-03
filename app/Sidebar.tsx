@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { ImageView } from './ImageView';
@@ -20,12 +20,18 @@ export default function Sidebar() {
           Food
         </Link>
         <Link
+          href="/search"
+          className="m-1 px-2 py-1 bg-indigo-400 text-indigo-700 font-bold rounded-lg"
+        >
+          Search
+        </Link>
+        <Link
           href="/account"
           className="m-1 px-2 py-1 bg-indigo-400 text-indigo-700 font-bold rounded-lg"
         >
           Account
         </Link>
-        {user.isSignedIn && <ImageView/>}
+        {user.isSignedIn && <ImageView />}
       </div>
     </>
   );
