@@ -1,14 +1,12 @@
 import Sidebar from './Sidebar';
 import './globals.css';
 import { Inter } from 'next/font/google';
-
+import { ClerkProvider } from "@clerk/nextjs/app-beta";
 const inter = Inter({ subsets: ['latin'] });
-
 export const metadata = {
   title: 'NourishLog',
   description: 'Nutrition-focused food tracker',
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -16,10 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Sidebar />
-        {children}
-      </body>
+      <ClerkProvider>
+        <body className={inter.className}>
+          <Sidebar />
+          {children}
+        </body>
+      </ClerkProvider>
     </html>
   );
 }
