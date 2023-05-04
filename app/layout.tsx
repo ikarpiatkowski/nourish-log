@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
-  title: 'NourishLog',
+  title: 'Nourish Log',
   description: 'Nutrition-focused food tracker',
 };
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={inter.className}>
+        <body className={`${inter.className}`}>
           <Sidebar />
           {children}
         </body>

@@ -1,7 +1,8 @@
 import Search from './Search';
+
 export const metadata = {
-  title: 'Ikar Search',
-  description: 'Created by Ikar',
+  title: 'Nourish Log',
+  description: 'Nutrition-focused food tracker',
 };
 export default function RootLayout({
   children,
