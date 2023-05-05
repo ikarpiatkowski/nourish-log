@@ -8,9 +8,8 @@ const search = async (searchFood: string) => {
     },
   };
   const response: SearchResult = await fetch(url, options);
-  const result = await response.text();
-  const resultJson = JSON.parse(result);
-  return resultJson;
+  const result = await response.json();
+  return result;
 };
 export default async function SearchResult({
   params: { searchFood },
