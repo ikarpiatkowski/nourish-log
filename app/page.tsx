@@ -2,7 +2,7 @@
 import { SignInButton, useUser } from '@clerk/nextjs';
 import SearchResult from './search/[searchFood]/page';
 import { Suspense } from 'react';
-import { LoadingSpinner } from './components/loading';
+import { LoadingSpinner } from '../components/LoadingSpinner';
 export default async function Home() {
   const user = useUser();
   return (

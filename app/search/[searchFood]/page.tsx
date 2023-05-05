@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import SearchNinja from '../../components/SearchNinja';
-import { LoadingSpinner } from '@/app/components/loading';
+import SearchNinja from '../../../components/SearchNinja';
+import { LoadingSpinner } from '@/components/LoadingSpinner';
 
 export default function SearchFood({
   params: { searchFood },
