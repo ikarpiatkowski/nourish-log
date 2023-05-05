@@ -10,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col items-center justify-center w-full h-screen">
+    <main className="flex flex-col items-center w-full h-screen">
       <Search />
       {children}
     </main>
