@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
-import SearchNinja from '../SearchNinja';
+import SearchNinja from '../../components/SearchNinja';
+import { LoadingSpinner } from '@/app/components/loading';
 
 export default function SearchFood({
   params: { searchFood },
@@ -8,7 +9,7 @@ export default function SearchFood({
     <>
       <main className="flex flex-col ml-32 items-center justify-center h-screen">
         Food
-        <Suspense fallback={<p className="text-red-500">Loading food...</p>}>
+        <Suspense fallback={<LoadingSpinner size={20} />}>
           {/* @ts-ignore */}
           <SearchNinja params={{ searchFood }} />
         </Suspense>
