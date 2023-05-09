@@ -1,4 +1,4 @@
-export default async function Food() {
+export default async function FoodPage() {
   const url =
     'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=cheese';
   const options = {
@@ -12,7 +12,7 @@ export default async function Food() {
   const response = await fetch(url, options);
   const result = await response.json();
   return (
-    <main className="flex flex-col items-center justify-center w-full h-screen">
+    <main className="flex flex-col items-center justify-center w-full h-screen bg-gray-900">
       <div className="p-10 bg-indigo-700 m-2 shadow-lg">
         {result.map((r: any) => (
           <p key={r.name}>

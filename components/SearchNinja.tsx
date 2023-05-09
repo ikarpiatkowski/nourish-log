@@ -16,9 +16,9 @@ export default async function SearchNinja({
 }: SearchPageProps) {
   const searchResult = await search(searchFood);
   return (
-    <div>
+    <>
       {searchResult.map((food: SearchResult) => (
-        <div key={food.name}>
+        <div key={food.name} className="bg-gray-800 m-4 p-2">
           {food.name}
           <p>Calories: {food.calories}</p>
           <p>Serving Size: {food.serving_size_g}g</p>
@@ -33,6 +33,6 @@ export default async function SearchNinja({
           <p>Sugar: {food.sugar_g}g</p>
         </div>
       ))}
-    </div>
+    </>
   );
 }
