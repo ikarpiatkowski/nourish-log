@@ -3,7 +3,7 @@ type SearchPageProps = {
     searchFood: string;
   };
 };
-type SearchResult = Object[{
+type SearchResult = {
   name: string;
   calories: number;
   serving_size_g: number;
@@ -16,4 +16,4 @@ type SearchResult = Object[{
   carbohydrates_total_g: number;
   fiber_g: number;
   sugar_g: number;
-}];
+};
