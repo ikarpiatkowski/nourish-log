@@ -1,3 +1,4 @@
+import { createClient } from '@supabase/supabase-js';
 const search = async (searchFood: string) => {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${searchFood}`;
   const options = {
@@ -16,7 +17,14 @@ const search = async (searchFood: string) => {
 export default async function SearchNinja({
   params: { searchFood },
 }: SearchPageProps) {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
   const searchResult = await search(searchFood);
+  const { data, error } = await supabase
+    .from('food')
+    .insert({ food_noutrition: searchResult });
   return (
     <>
       {searchResult.map((food: SearchResult) => (

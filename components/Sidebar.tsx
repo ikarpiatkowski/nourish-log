@@ -24,12 +24,6 @@ export default function Sidebar() {
         >
           Search
         </Link>
-        <Link
-          href="/account"
-          className="m-1 px-2 py-1 bg-indigo-400 text-indigo-700 font-bold rounded-lg"
-        >
-          Account
-        </Link>
         <LoginButton />
       </div>
     </aside>
