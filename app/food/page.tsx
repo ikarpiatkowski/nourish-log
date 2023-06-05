@@ -13,7 +13,7 @@ export default async function FoodPage() {
   const result = await response.json();
   return (
     <main className="flex flex-col items-center justify-center w-full h-screen bg-gray-900">
-      <div className="p-10 bg-indigo-700 m-2 shadow-lg">
+      <div className="bg-indigo-700 m-4 p-2">
         {result.map((r: any) => (
           <p key={r.name}>
             Food: {r.name} <br />

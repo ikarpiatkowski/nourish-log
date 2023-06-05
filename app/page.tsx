@@ -1,3 +1,4 @@
+import CalendarDemo from '@components/Calendar';
 import { createClient } from '@supabase/supabase-js';
 export const revalidate = 0;
 export default async function Home() {
@@ -10,10 +11,10 @@ export default async function Home() {
   const supadataparse = JSON.parse(supadata);
   return (
     <>
-      <main className="flex flex-col items-center justify-center bg-gray-900">
-        <pre>
+      <main className="bg-gray-900 h-full">
+        <div className="flex flex-row flex-wrap">
           {supadataparse.map((food: any) => (
-            <div key={food.name} className="bg-gray-800 m-4 p-2">
+            <div key={food.name} className="bg-indigo-700 m-4 p-2">
               {food.food_noutrition[0].name}
               <p>Calories: {food.food_noutrition[0].calories}</p>
               <p>Serving Size: {food.food_noutrition[0].serving_size_g}g</p>
@@ -31,7 +32,8 @@ export default async function Home() {
               <p>Sugar: {food.food_noutrition[0].sugar_g}g</p>
             </div>
           ))}
-        </pre>
+        </div>
+        <CalendarDemo />
       </main>
     </>
   );
