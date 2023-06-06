@@ -1,39 +1,53 @@
-import CalendarDemo from '@components/Calendar';
-import { createClient } from '@supabase/supabase-js';
-export const revalidate = 0;
+import Link from 'next/link';
+
 export default async function Home() {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-  const { data } = await supabase.from('food').select('food_noutrition');
-  const supadata = JSON.stringify(data);
-  const supadataparse = JSON.parse(supadata);
   return (
     <>
-      <main className="bg-gray-900 h-full">
-        <div className="flex flex-row flex-wrap">
-          {supadataparse.map((food: any) => (
-            <div key={food.name} className="bg-indigo-700 m-4 p-2">
-              {food.food_noutrition[0].name}
-              <p>Calories: {food.food_noutrition[0].calories}</p>
-              <p>Serving Size: {food.food_noutrition[0].serving_size_g}g</p>
-              <p>Total Fat: {food.food_noutrition[0].fat_total_g}g</p>
-              <p>Saturated Fat: {food.food_noutrition[0].fat_saturated_g}g</p>
-              <p>Protein: {food.food_noutrition[0].protein_g}g</p>
-              <p>Sodium: {food.food_noutrition[0].sodium_mg}mg</p>
-              <p>Potassium: {food.food_noutrition[0].potassium_mg}mg</p>
-              <p>Cholesterol: {food.food_noutrition[0].cholesterol_mg}mg</p>
-              <p>
-                Total Carbohydrates:
-                {food.food_noutrition[0].carbohydrates_total_g}g
-              </p>
-              <p>Fiber: {food.food_noutrition[0].fiber_g}g</p>
-              <p>Sugar: {food.food_noutrition[0].sugar_g}g</p>
-            </div>
-          ))}
-        </div>
-        <CalendarDemo />
+      <main className="bg-gray-900 h-screen text-center">
+        <p className="pt-10 text-7xl underline decoration-indigo-500">
+          Nourish Log
+        </p>
+        <p className="py-6 text-2xl underline decoration-sky-500">
+          Your personal food tracker!
+        </p>
+        <p className="py-6 text-xl ">List of Features:</p>
+        <ul>
+          <li>
+            Search food nutritions (
+            <Link className="text-neutral-500" href={'https://nextjs.org'}>
+              Next.js
+            </Link>
+            )
+          </li>
+          <li>
+            Login with github account (
+            <Link className="text-indigo-500" href={'https://clerk.com'}>
+              Clerk
+            </Link>
+            )
+          </li>
+          <li>
+            Loading states and errors for components (
+            <Link className="text-blue-500" href={'https://react.dev'}>
+              React
+            </Link>
+            )
+          </li>
+          <li>
+            Database connection and configuration (
+            <Link className="text-green-500" href={'https://supabase.com'}>
+              Supabase
+            </Link>
+            )
+          </li>
+          <li>
+            Managing UI with 3rd party libraries (
+            <Link className="text-sky-500" href={'https://tailwindcss.com'}>
+              TailwindCSS
+            </Link>
+            )
+          </li>
+        </ul>
       </main>
     </>
   );

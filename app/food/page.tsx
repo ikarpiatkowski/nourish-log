@@ -1,36 +1,35 @@
+import supabase from '@utils/supabase';
 export default async function FoodPage() {
-  const url =
-    'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=cheese';
-  const options = {
-    method: 'GET',
-    headers: {
-      'content-type': 'application/octet-stream',
-      'X-RapidAPI-Key': '103346cb27msh411ffdcbea4bd27p1b7e80jsnf31b146c3ba0',
-      'X-RapidAPI-Host': 'nutrition-by-api-ninjas.p.rapidapi.com',
-    },
-  };
-  const response = await fetch(url, options);
-  const result = await response.json();
+  const { data } = await supabase.from('food').select('food_noutrition');
   return (
-    <main className="flex flex-col items-center justify-center w-full h-screen bg-gray-900">
-      <div className="bg-indigo-700 m-4 p-2">
-        {result.map((r: any) => (
-          <p key={r.name}>
-            Food: {r.name} <br />
-            Calories: {r.calories} <br />
-            Serving: {r.serving_size_g} <br />
-            Fat: {r.fat_total_g} <br />
-            Fat Saturated: {r.fat_saturated_g} <br />
-            Protein: {r.protein_g} <br />
-            Sodium: {r.sodium_mg} <br />
-            Potassium: {r.potassium_mg} <br />
-            Cholesterol: {r.cholesterol_mg} <br />
-            Carbohydrates: {r.carbohydrates_total_g} <br />
-            Fiber: {r.fiber_g} <br />
-            Sugar: {r.sugar_g} <br />
-          </p>
-        ))}
-      </div>
-    </main>
+    <>
+      <main className="bg-gray-900 h-screen">
+        <div className="flex flex-row flex-wrap">
+          {data!.map((food: any) => (
+            <div key={food.name} className="rounded-3xl bg-indigo-700 m-4 p-2">
+              <p className="font-bold text-center capitalize">
+                {food.food_noutrition[0].name} 🧧
+              </p>
+              <p>🍕 Calories: {food.food_noutrition[0].calories}</p>
+              <p>🍽 Serving Size: {food.food_noutrition[0].serving_size_g}g</p>
+              <p>🥓 Total Fat: {food.food_noutrition[0].fat_total_g}g</p>
+              <p>
+                🍔 Saturated Fat: {food.food_noutrition[0].fat_saturated_g}g
+              </p>
+              <p>🥛 Protein: {food.food_noutrition[0].protein_g}g</p>
+              <p>🧀 Sodium: {food.food_noutrition[0].sodium_mg}mg</p>
+              <p>🍌 Potassium: {food.food_noutrition[0].potassium_mg}mg</p>
+              <p>🍖 Cholesterol: {food.food_noutrition[0].cholesterol_mg}mg</p>
+              <p>
+                🍞 Total Carbohydrates:
+                {food.food_noutrition[0].carbohydrates_total_g}g
+              </p>
+              <p>🥜 Fiber: {food.food_noutrition[0].fiber_g}g</p>
+              <p>🍩 Sugar: {food.food_noutrition[0].sugar_g}g</p>
+            </div>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
+import { Button, buttonVariants } from '@/components/ui/button';
 export default function Search() {
   const [search, setSearch] = useState('');
   const router = useRouter();
@@ -9,8 +10,11 @@ export default function Search() {
     setSearch('');
     router.push(`/search/${search}`);
   };
+  const buttonClass = `m-1 px-2 py-1 bg-indigo-600 ${buttonVariants({
+    variant: 'outline',
+  })}`;
   return (
-    <form onSubmit={handleSearch} className="bg-gray-900 w-full">
+    <form onSubmit={handleSearch} className="bg-gray-900 w-full p-10">
       <div className="flex justify-center">
         <input
           className="bg-gray-900 outline-none"
@@ -19,12 +23,9 @@ export default function Search() {
           placeholder="Enter the search term"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button
-          type="submit"
-          className="bg-gray-400 text-gray-900 font-bold m-4 py-2 px-4 rounded-lg"
-        >
+        <Button type="submit" className={buttonClass}>
           Search
-        </button>
+        </Button>
       </div>
     </form>
   );

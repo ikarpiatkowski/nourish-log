@@ -1,8 +1,8 @@
-import Sidebar from '../components/Sidebar';
 import '@styles/globals.css';
 import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import { ScrollArea } from '@components/ui/scroll-area';
+import Sidebar from '@components/Sidebar';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Nourish Log',
