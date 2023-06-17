@@ -9,9 +9,12 @@ export default function Sidebar() {
   })}`;
   return (
     <aside>
-      <div className="flex flex-col p-5 items-start bg-indigo-800 w-32 h-screen">
+      <div className="flex flex-col p-5 items-start bg-indigo-800 w-36 h-screen">
         <Link href="/">
           <Image src={logo} alt="logo" />
+        </Link>
+        <Link href="/dashboard" className={buttonClass}>
+          Dashboard
         </Link>
         <Link href="/food" className={buttonClass}>
           Food
