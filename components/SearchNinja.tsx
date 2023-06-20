@@ -1,6 +1,5 @@
 'use client';
-import supabase from '@utils/supabase';
-import { Button, buttonVariants } from '@components/ui/button';
+import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
 const search = async (searchFood: string) => {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${searchFood}`;
@@ -28,9 +27,6 @@ export default async function SearchNinja({
       user_id: userId,
     });
   };
-  const buttonClass = `m-1 px-2 py-1 bg-indigo-600 ${buttonVariants({
-    variant: 'outline',
-  })}`;
   return (
     <>
       {searchResult.map((food: SearchResult) => (
@@ -49,10 +45,8 @@ export default async function SearchNinja({
           <p>🍩 Sugar: {food.sugar_g}g</p>
         </div>
       ))}
-      <form className="mt-8" action={handleSubmit}>
-        <Button type="submit" className={buttonClass}>
-          Save to diary
-        </Button>
+      <form onSubmit={handleSubmit}>
+        <button type="submit">Save to diary</button>
       </form>
     </>
   );

@@ -8,7 +8,7 @@ export default function SearchFoodPage({
   return (
     <>
       <Search />
-      <main className="flex flex-col items-center justify-center w-full h-screen bg-gray-900">
+      <main className="flex flex-row flex-wrap items-center justify-center w-full h-screen bg-gray-900">
         <Suspense fallback={<LoadingSpinner size={20} />}>
           {/* @ts-ignore */}
           <SearchNinja params={{ searchFood }} />
