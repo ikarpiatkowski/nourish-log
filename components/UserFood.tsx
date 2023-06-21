@@ -9,10 +9,10 @@ export default async function UserFood() {
     .eq('user_id', userId);
   return (
     <>
-      <p className="text-xl">My Food</p>
-      <div className="flex">
+      <p className="text-xl">My Dashboard</p>
+      <div className="flex flex-wrap">
         {data!.map((f: any) => (
-          <div key={f.name} className="rounded-3xl bg-indigo-700 m-4 p-2">
+          <div key={f.name} className="rounded-3xl bg-indigo-700 m-4 p-2 w-64">
             <p className="rounded-3xl bg-indigo-800 font-bold text-center capitalize">
               {f.food[0].name} 🧧
             </p>

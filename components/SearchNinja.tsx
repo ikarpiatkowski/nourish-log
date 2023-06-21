@@ -1,6 +1,7 @@
 'use client';
 import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 const search = async (searchFood: string) => {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${searchFood}`;
   const options = {
@@ -19,14 +20,17 @@ const search = async (searchFood: string) => {
 export default async function SearchNinja({
   params: { searchFood },
 }: SearchPageProps) {
+  const router = useRouter();
   const { userId } = useAuth();
   const searchResult = await search(searchFood);
   const style = 'text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
     await supabase.from('userFood').insert({
       food: searchResult,
       user_id: userId,
     });
+    router.push('/dashboard');
   };
   return (
     <>

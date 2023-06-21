@@ -13,7 +13,6 @@ export default function SearchFoodPage({
       <Search />
       <main className="flex flex-row flex-wrap items-center justify-center w-full h-screen bg-gray-900">
         <Suspense fallback={<LoadingSpinner size={20} />}>
-          {/* @ts-ignore */}
           <SearchNinja params={{ searchFood }} />
         </Suspense>
       </main>
