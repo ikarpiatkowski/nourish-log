@@ -2,6 +2,9 @@ import { Suspense } from 'react';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import Search from '@components/Search';
 import SearchNinja from '@components/SearchNinja';
+export const metadata = {
+  title: 'Nourish Log - Search food',
+};
 export default function SearchFoodPage({
   params: { searchFood },
 }: SearchPageProps) {

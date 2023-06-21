@@ -1,4 +1,7 @@
 import supabase from '@utils/supabase';
+export const metadata = {
+  title: 'Nourish Log - Food',
+};
 export default async function FoodPage() {
   const { data } = await supabase.from('food').select('food_noutrition');
   return (

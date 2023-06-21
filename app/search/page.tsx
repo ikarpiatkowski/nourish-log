@@ -1,4 +1,7 @@
 import Search from '@components/Search';
+export const metadata = {
+  title: 'Nourish Log - Search',
+};
 export default function SearchPage() {
   return (
     <>
