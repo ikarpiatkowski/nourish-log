@@ -10,7 +10,7 @@ export default async function FoodPage() {
         <div className="flex flex-row flex-wrap">
           {data!.map((food: any) => (
             <div key={food.name} className="rounded-3xl bg-indigo-700 m-4 p-2">
-              <p className="font-bold text-center capitalize">
+              <p className="rounded-3xl font-bold bg-indigo-800 text-center capitalize">
                 {food.food_noutrition[0].name} 🧧
               </p>
               <p>🍕 Calories: {food.food_noutrition[0].calories}</p>

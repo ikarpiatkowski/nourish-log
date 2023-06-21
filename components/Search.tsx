@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 export default function Search() {
+  const style = 'text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
   const [search, setSearch] = useState('');
   const router = useRouter();
   const handleSearch = async (e: FormEvent<HTMLFormElement>) => {
@@ -19,7 +20,9 @@ export default function Search() {
           placeholder="Enter the search term"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button className={style} type="submit">
+          Search
+        </button>
       </div>
     </form>
   );

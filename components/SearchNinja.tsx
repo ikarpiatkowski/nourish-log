@@ -21,6 +21,7 @@ export default async function SearchNinja({
 }: SearchPageProps) {
   const { userId } = useAuth();
   const searchResult = await search(searchFood);
+  const style = 'text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
   const handleSubmit = async () => {
     await supabase.from('userFood').insert({
       food: searchResult,
@@ -31,7 +32,9 @@ export default async function SearchNinja({
     <>
       {searchResult.map((food: SearchResult) => (
         <div key={food.name} className="rounded-3xl bg-indigo-700 m-4 p-2">
-          <p className="font-bold text-center capitalize">{food.name} 🧧</p>
+          <p className="rounded-3xl font-bold bg-indigo-800 text-center capitalize">
+            {food.name} 🧧
+          </p>
           <p>🍕 Calories: {food.calories}</p>
           <p>🍽 Serving Size: {food.serving_size_g}g</p>
           <p>🥓 Total Fat: {food.fat_total_g}g</p>
@@ -46,7 +49,9 @@ export default async function SearchNinja({
         </div>
       ))}
       <form onSubmit={handleSubmit}>
-        <button type="submit">Save to diary</button>
+        <button className={style} type="submit">
+          Save to diary
+        </button>
       </form>
     </>
   );
