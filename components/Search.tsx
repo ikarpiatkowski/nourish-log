@@ -1,8 +1,9 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 export default function Search() {
-  const style = 'text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
+  const style = 'flex text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
   const [search, setSearch] = useState('');
   const router = useRouter();
   const handleSearch = async (e: FormEvent<HTMLFormElement>) => {
@@ -21,6 +22,7 @@ export default function Search() {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button className={style} type="submit">
+          <MagnifyingGlassIcon className="h-5 w-5" />
           Search
         </button>
       </div>
