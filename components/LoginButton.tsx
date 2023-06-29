@@ -4,25 +4,24 @@ export default function LoginButton() {
   const user = useUser();
   return (
     <>
-      {!user.isSignedIn && (
-        <div className="justify-center items-center flex flex-col mb-5 w-full gap-3 mt-auto">
+      <div className="justify-center items-center flex flex-col mb-5 w-full gap-3">
+        {!user.isSignedIn ? (
           <SignInButton />
-        </div>
-      )}
-      {user.isSignedIn && (
-        <div className="justify-center items-center flex flex-col mb-5 w-full gap-3 mt-auto">
-          <UserButton
-            appearance={{
-              elements: {
-                userButtonAvatarBox: {
-                  width: 56,
-                  height: 56,
+        ) : (
+          user.isSignedIn && (
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: {
+                    width: 56,
+                    height: 56,
+                  },
                 },
-              },
-            }}
-          />
-        </div>
-      )}
+              }}
+            />
+          )
+        )}
+      </div>
     </>
   );
 }

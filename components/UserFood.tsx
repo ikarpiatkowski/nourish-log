@@ -9,7 +9,6 @@ export default async function UserFood() {
     .eq('user_id', userId);
   return (
     <>
-      <p className="text-xl">My Dashboard</p>
       <div className="flex flex-wrap">
         {data!.map((f: any) => (
           <div key={f.name} className="rounded-3xl bg-indigo-700 m-4 p-2 w-64">

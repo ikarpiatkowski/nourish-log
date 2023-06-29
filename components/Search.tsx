@@ -11,10 +11,10 @@ export default function Search() {
     router.push(`/search/${search}`);
   };
   return (
-    <form onSubmit={handleSearch} className="bg-gray-900 w-full p-10">
+    <form onSubmit={handleSearch} className="w-full p-10">
       <div className="flex justify-center">
         <input
-          className="bg-gray-900 outline-none"
+          className="dark:bg-[#1c1b22] dark:placeholder:text-white placeholder:text-black outline-none"
           type="text"
           value={search}
           placeholder="Enter the search term"

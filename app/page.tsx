@@ -2,7 +2,7 @@ import Link from 'next/link';
 export default async function Home() {
   return (
     <>
-      <main className="bg-gray-900 h-screen text-center">
+      <main className="h-screen text-center">
         <p className="pt-10 text-7xl underline decoration-indigo-500">
           Nourish Log
         </p>

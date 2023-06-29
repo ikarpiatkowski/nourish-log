@@ -6,8 +6,7 @@ export default async function FoodPage() {
   const { data } = await supabase.from('food').select('food_noutrition');
   return (
     <>
-      <main className="flex flex-col flex-wrap items-center h-screen bg-gray-900">
-        <p className="text-xl">My Food</p>
+      <main className="flex flex-col flex-wrap items-center h-screen">
         <div className="flex flex-row flex-wrap">
           {data!.map((food: any) => (
             <div
