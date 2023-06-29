@@ -11,7 +11,10 @@ export default async function UserFood() {
     <>
       <div className="flex flex-wrap">
         {data!.map((f: any) => (
-          <div key={f.name} className="rounded-3xl bg-indigo-700 m-4 p-2 w-64">
+          <div
+            key={f.food[0].name}
+            className="rounded-3xl bg-indigo-700 m-4 p-2 w-64"
+          >
             <p className="rounded-3xl bg-indigo-800 font-bold text-center capitalize">
               {f.food[0].name} 🧧
             </p>
