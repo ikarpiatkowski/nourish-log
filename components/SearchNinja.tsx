@@ -1,6 +1,7 @@
 'use client';
 import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
+import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 const search = async (searchFood: string) => {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${searchFood}`;
@@ -23,7 +24,8 @@ export default async function SearchNinja({
   const router = useRouter();
   const { userId } = useAuth();
   const searchResult = await search(searchFood);
-  const style = 'text-black rounded-xl m-1 px-2 py-1 bg-indigo-200';
+  const style =
+    ' rounded-xl m-1 px-2 py-1 dark:text-white bg-neutral-400 dark:bg-neutral-700 items-center gap-x-2 flex';
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     await supabase.from('userFood').insert({
@@ -35,8 +37,11 @@ export default async function SearchNinja({
   return (
     <>
       {searchResult.map((food: SearchResult) => (
-        <div key={food.name} className="rounded-3xl bg-indigo-700 m-4 p-2">
-          <p className="rounded-3xl font-bold bg-indigo-800 text-center capitalize">
+        <div
+          key={food.name}
+          className="duration-300 rounded-3xl bg-neutral-300 dark:bg-neutral-600 m-4 p-2"
+        >
+          <p className="rounded-3xl font-bold bg-neutral-400 dark:bg-neutral-700 text-center capitalize">
             {food.name} 🧧
           </p>
           <p>🍕 Calories: {food.calories}</p>
@@ -54,7 +59,8 @@ export default async function SearchNinja({
       ))}
       <form onSubmit={handleSubmit}>
         <button className={style} type="submit">
-          Save to diary
+          <ClipboardIcon className="h-6 w-6" />
+          Save
         </button>
       </form>
     </>

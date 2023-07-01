@@ -13,9 +13,9 @@ export default async function UserFood() {
         {data!.map((f: any) => (
           <div
             key={f.food[0].name}
-            className="rounded-3xl bg-indigo-700 m-4 p-2 w-64"
+            className="rounded-3xl bg-neutral-300 dark:bg-neutral-600 m-4 p-2 w-64"
           >
-            <p className="rounded-3xl bg-indigo-800 font-bold text-center capitalize">
+            <p className="rounded-3xl bg-neutral-400 dark:bg-neutral-700 font-bold text-center capitalize">
               {f.food[0].name} 🧧
             </p>
             <p>🍕 Calories: {f.food[0].calories}</p>
