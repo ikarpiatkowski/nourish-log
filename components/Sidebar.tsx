@@ -9,6 +9,7 @@ import {
   ArchiveBoxIcon,
   MagnifyingGlassIcon,
   ChevronDownIcon,
+  Cog6ToothIcon,
 } from '@heroicons/react/24/outline';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
@@ -64,6 +65,12 @@ export default function Sidebar() {
         <Link href="/search" className={style}>
           <MagnifyingGlassIcon className="h-6 w-6" />
           <p className={`duration-300 ${!open && 'hidden scale-0'}`}>Search</p>
+        </Link>
+        <Link href="/settings" className={style}>
+          <Cog6ToothIcon className="h-6 w-6" />
+          <p className={`duration-300 ${!open && 'hidden scale-0'}`}>
+            Settings
+          </p>
         </Link>
         <ThemeButton />
         <LoginButton />
