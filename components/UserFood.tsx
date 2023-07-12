@@ -1,14 +1,22 @@
 'use client';
 import { useAuth } from '@clerk/nextjs';
 import supabase from '@utils/supabase';
+import { useState } from 'react';
 export default async function UserFood() {
+  const [datePicker, setDatePicker] = useState('2023-06-21');
   const { userId } = useAuth();
   const { data } = await supabase
     .from('userFood')
     .select('food')
-    .eq('user_id', userId);
+    .eq('user_id', userId)
+    .eq('created_at', datePicker);
   return (
     <>
+      <input
+        className="p-5 m-5"
+        type="date"
+        onChange={(e) => setDatePicker(e.target.value)}
+      />
       <div className="flex flex-wrap">
         {data!.map((f: any) => (
           <div

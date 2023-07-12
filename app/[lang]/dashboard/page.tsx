@@ -5,7 +5,7 @@ export const metadata = {
 export default function DashboardPage() {
   return (
     <>
-      <main className="flex flex-col flex-wrap items-center h-screen">
+      <main className="flex flex-col items-center h-full">
         <UserFood />
       </main>
     </>

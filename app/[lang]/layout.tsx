@@ -16,12 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+    <html lang="en" className="h-full dark" style={{ colorScheme: 'dark' }}>
       <ClerkProvider>
-        <body className={`flex ${inter.className}`}>
+        <body className={`flex h-full ${inter.className}`}>
           <Providers>
             <Sidebar />
-            <div className="flex-grow">{children}</div>
+            {children}
           </Providers>
         </body>
       </ClerkProvider>

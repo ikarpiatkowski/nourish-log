@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default async function Home({ params }: { params: { lang: string } }) {
   return (
     <>
-      <main className="h-screen text-center">
+      <main className="h-full text-center flex-grow">
         <p className="pt-10 text-7xl underline decoration-indigo-500">
           {dictionary[params.lang]?.homeHeader}
         </p>

@@ -8,8 +8,6 @@ export default function SearchLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col items-center w-full h-screen">
-      {children}
-    </main>
+    <main className="flex flex-col items-center w-full h-full">{children}</main>
   );
 }

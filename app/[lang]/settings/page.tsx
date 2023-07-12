@@ -4,7 +4,7 @@ export const metadata = {
 export default function SettingsPage() {
   return (
     <>
-      <div className="flex flex-col items-center w-full h-screen">
+      <div className="flex flex-col items-center w-full h-full">
         Fat
         <div className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4">
           <div className="bg-blue-600 h-4 rounded-full w-3/4 text-center leading-none text-xs font-medium">
