@@ -1,4 +1,4 @@
-import { dictionary } from '@content';
+import { dictionary } from '@/content';
 import Link from 'next/link';
 export default async function Home({ params }: { params: { lang: string } }) {
   return (

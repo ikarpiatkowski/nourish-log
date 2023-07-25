@@ -1,15 +1,12 @@
-'use client';
-import { useAuth } from '@clerk/nextjs';
-import supabase from '@utils/supabase';
-import { useState } from 'react';
-export default async function UserFood() {
+import supabase from '@/utils/supabase';
+export default async function ServerSearch({
+  params: { userId, datePicker },
+}: any) {
   let totalCalories = 0;
   let totalFat = 0;
   let totalProtein = 0;
   let totalCarbohydrates = 0;
   let totalFiber = 0;
-  const [datePicker, setDatePicker] = useState('2023-06-21');
-  const { userId } = useAuth();
   const { data } = await supabase
     .from('userFood')
     .select('food')
@@ -17,12 +14,6 @@ export default async function UserFood() {
     .eq('created_at', datePicker);
   return (
     <>
-      <input
-        className="p-5 m-5"
-        type="date"
-        onChange={(e) => setDatePicker(e.target.value)}
-      />
-      {/* {data!.reduce((f) => f + f, 0)} */}
       {data!.forEach((f) => {
         totalCalories += f.food[0].calories;
         totalFat += f.food[0].fat_total_g;

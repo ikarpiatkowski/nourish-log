@@ -1,4 +1,4 @@
-import UserFood from '@components/UserFood';
+import UserFood from '@/components/UserFood';
 export const metadata = {
   title: 'Nourish Log - Dashboard',
 };

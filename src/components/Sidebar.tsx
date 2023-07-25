@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/logo.png';
 import LoginButton from './LoginButton';
-import ThemeButton from '@components/ThemeButton';
+import ThemeButton from '@/components/ThemeButton';
 import {
   HomeIcon,
   ArchiveBoxIcon,

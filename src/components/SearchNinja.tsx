@@ -3,6 +3,26 @@ import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
 import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+type SearchResult = {
+  name: string;
+  calories: number;
+  serving_size_g: number;
+  fat_total_g: number;
+  fat_saturated_g: number;
+  protein_g: number;
+  sodium_mg: number;
+  potassium_mg: number;
+  cholesterol_mg: number;
+  carbohydrates_total_g: number;
+  fiber_g: number;
+  sugar_g: number;
+};
+type SearchPageProps = {
+  params: {
+    searchFood: string;
+  };
+};
 const search = async (searchFood: string) => {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${searchFood}`;
   const options = {
@@ -18,12 +38,18 @@ const search = async (searchFood: string) => {
   );
   return searchResult;
 };
-export default async function SearchNinja({
+export default function SearchNinja({
   params: { searchFood },
 }: SearchPageProps) {
   const router = useRouter();
   const { userId } = useAuth();
-  const searchResult = await search(searchFood);
+  // const searchResult = search(searchFood);  SHOULD I TRY TO MAKE IT AWAIT?
+  const [searchResult, setSearchResult] = useState<SearchResult[]>([]);
+  useEffect(() => {
+    search(searchFood)
+      .then((result) => setSearchResult(result))
+      .catch((error) => console.error('Error searching:', error));
+  }, [searchFood]);
   const style =
     ' rounded-xl m-1 px-2 py-1 dark:text-white bg-neutral-400 dark:bg-neutral-700 items-center gap-x-2 flex';
   const handleSubmit = async (e: any) => {

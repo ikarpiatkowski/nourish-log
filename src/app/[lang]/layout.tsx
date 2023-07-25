@@ -1,9 +1,9 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
-import Sidebar from '@components/Sidebar';
+import Sidebar from '@/components/Sidebar';
 import { Metadata } from 'next';
-import Providers from '@components/providers';
+import Providers from '@/components/providers';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nourish Log',
