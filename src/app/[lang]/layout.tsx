@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import Sidebar from '@/components/Sidebar';
 import { Metadata } from 'next';
 import Providers from '@/components/providers';
+import Navbar from '@/components/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nourish Log',
@@ -21,7 +22,10 @@ export default function RootLayout({
         <body className={`flex h-full ${inter.className}`}>
           <Providers>
             <Sidebar />
-            {children}
+            <div className="flex flex-col w-full">
+              <Navbar />
+              {children}
+            </div>
           </Providers>
         </body>
       </ClerkProvider>
