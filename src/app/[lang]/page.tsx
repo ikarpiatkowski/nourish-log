@@ -1,6 +1,6 @@
 import { dictionary } from '@/content';
 import Link from 'next/link';
-export default async function Home({ params }: { params: { lang: string } }) {
+export default function Home({ params }: { params: { lang: string } }) {
   return (
     <>
       <main className="h-full text-center flex-grow">

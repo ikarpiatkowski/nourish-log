@@ -3,7 +3,7 @@ import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
 import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 type SearchResult = {
   name: string;
   calories: number;
@@ -52,7 +52,7 @@ export default function SearchNinja({
   }, [searchFood]);
   const style =
     ' rounded-xl m-1 px-2 py-1 dark:text-white bg-neutral-400 dark:bg-neutral-700 items-center gap-x-2 flex';
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await supabase.from('userFood').insert({
       food: searchResult,

@@ -1,4 +1,21 @@
 import supabase from '@/utils/supabase';
+type SearchResult = {
+  name: string;
+  calories: number;
+  serving_size_g: number;
+  fat_total_g: number;
+  fat_saturated_g: number;
+  protein_g: number;
+  sodium_mg: number;
+  potassium_mg: number;
+  cholesterol_mg: number;
+  carbohydrates_total_g: number;
+  fiber_g: number;
+  sugar_g: number;
+};
+type FoodData = {
+  food: SearchResult[];
+};
 export default async function ServerSearch({
   params: { userId, datePicker },
 }: any) {
@@ -14,12 +31,12 @@ export default async function ServerSearch({
     .eq('created_at', datePicker);
   return (
     <>
-      {data!.forEach((f) => {
-        totalCalories += f.food[0].calories;
-        totalFat += f.food[0].fat_total_g;
-        totalProtein += f.food[0].protein_g;
-        totalCarbohydrates += f.food[0].carbohydrates_total_g;
-        totalFiber += f.food[0].fiber_g;
+      {data!.forEach((foodData: FoodData) => {
+        totalCalories += foodData.food[0].calories;
+        totalFat += foodData.food[0].fat_total_g;
+        totalProtein += foodData.food[0].protein_g;
+        totalCarbohydrates += foodData.food[0].carbohydrates_total_g;
+        totalFiber += foodData.food[0].fiber_g;
       })}
       <div className="flex">
         <div className="flex flex-col">
@@ -64,28 +81,28 @@ export default async function ServerSearch({
         </div>
       </div>
       <div className="flex flex-wrap">
-        {data!.map((f) => (
+        {data!.map((foodData: FoodData) => (
           <div
-            key={f.food[0].name}
+            key={foodData.food[0].name}
             className="rounded-3xl bg-neutral-300 dark:bg-neutral-600 m-4 p-2 w-64"
           >
             <p className="rounded-3xl bg-neutral-400 dark:bg-neutral-700 font-bold text-center capitalize">
-              {f.food[0].name} 🧧
+              {foodData.food[0].name} 🧧
             </p>
-            <p>🍕 Calories: {f.food[0].calories}</p>
-            <p>🍽 Serving Size: {f.food[0].serving_size_g}g</p>
-            <p>🥓 Total Fat: {f.food[0].fat_total_g}g</p>
-            <p>🍔 Saturated Fat: {f.food[0].fat_saturated_g}g</p>
-            <p>🥛 Protein: {f.food[0].protein_g}g</p>
-            <p>🧀 Sodium: {f.food[0].sodium_mg}mg</p>
-            <p>🍌 Potassium: {f.food[0].potassium_mg}mg</p>
-            <p>🍖 Cholesterol: {f.food[0].cholesterol_mg}mg</p>
+            <p>🍕 Calories: {foodData.food[0].calories}</p>
+            <p>🍽 Serving Size: {foodData.food[0].serving_size_g}g</p>
+            <p>🥓 Total Fat: {foodData.food[0].fat_total_g}g</p>
+            <p>🍔 Saturated Fat: {foodData.food[0].fat_saturated_g}g</p>
+            <p>🥛 Protein: {foodData.food[0].protein_g}g</p>
+            <p>🧀 Sodium: {foodData.food[0].sodium_mg}mg</p>
+            <p>🍌 Potassium: {foodData.food[0].potassium_mg}mg</p>
+            <p>🍖 Cholesterol: {foodData.food[0].cholesterol_mg}mg</p>
             <p>
               🍞 Total Carbohydrates:
-              {f.food[0].carbohydrates_total_g}g
+              {foodData.food[0].carbohydrates_total_g}g
             </p>
-            <p>🥜 Fiber: {f.food[0].fiber_g}g</p>
-            <p>🍩 Sugar: {f.food[0].sugar_g}g</p>
+            <p>🥜 Fiber: {foodData.food[0].fiber_g}g</p>
+            <p>🍩 Sugar: {foodData.food[0].sugar_g}g</p>
           </div>
         ))}
       </div>
