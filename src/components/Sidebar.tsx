@@ -1,7 +1,5 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
-import logo from '@/public/logo.png';
 import LoginButton from './LoginButton';
 import ThemeButton from '@/components/ThemeButton';
 import {
@@ -17,26 +15,25 @@ export default function Sidebar() {
   const [open, setOpen] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const style =
-    'flex hover:bg-neutral-400 gap-x-2 rounded-xl m-1 px-2 py-1 w-full ';
+    'flex hover:bg-neutral-400 gap-x-2 rounded-xl m-1 px-2 py-1 w-full';
   return (
     <nav
       className={`${
-        open ? 'w-48 py-2' : 'w-20'
+        open ? 'w-48' : 'w-20'
       } duration-300 flex flex-col px-5 items-center bg-neutral-300 dark:bg-neutral-700 rounded-r-xl h-full`}
     >
       <Bars3Icon
-        className={`${style} h-6 w-6 m-4`}
+        className={`w-6 h-6 hover:bg-neutral-400 rounded-xl m-4`}
         onClick={() => setOpen(!open)}
       />
-      <Link href="/" className={`${open ? 'px-2 py-1' : ''}${style}`}>
-        <Image src={logo} alt="logo" />
-      </Link>
       <Link href="/dashboard" className={style}>
         <HomeIcon className="h-6 w-6" />
         <p className={`duration-300 ${!open && 'hidden scale-0'}`}>Dashboard</p>
       </Link>
       <div
-        className={`cursor-pointer select-none ${style}`}
+        className={`cursor-pointer select-none ${style} ${
+          openMenu && 'bg-neutral-600 duration-300'
+        }`}
         onClick={() => setOpenMenu(!openMenu)}
       >
         <ArchiveBoxIcon className="h-6 w-6" />
@@ -51,8 +48,8 @@ export default function Sidebar() {
       </div>
       {openMenu && open && (
         <>
-          <Link href="/food/demo" className={`${style}`}>
-            Demo
+          <Link href="/test" className={`${style}`}>
+            Test
           </Link>
           <Link href="/food" className={`${style}`}>
             Food

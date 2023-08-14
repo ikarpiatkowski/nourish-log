@@ -2,6 +2,8 @@
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 export default function Search() {
   const style =
     'flex text-black rounded-xl gap-x-2 m-1 px-2 py-1 dark:text-white bg-neutral-400 dark:bg-neutral-700 items-center';
@@ -15,17 +17,17 @@ export default function Search() {
   return (
     <form onSubmit={handleSearch} className="w-full p-10">
       <div className="flex justify-center">
-        <input
-          className="dark:bg-[#1c1b22] dark:placeholder:text-white placeholder:text-black outline-none"
+        <Input
           type="text"
+          placeholder="Search for food"
           value={search}
-          placeholder="Enter the search term"
+          className="w-60"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className={style} type="submit">
+        <Button type="submit" className="">
           <MagnifyingGlassIcon className="h-5 w-5" />
           Search
-        </button>
+        </Button>
       </div>
     </form>
   );

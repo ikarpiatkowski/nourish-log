@@ -4,10 +4,11 @@ export default function Home({ params }: { params: { lang: string } }) {
   return (
     <>
       <main className="h-full text-center flex-grow">
-        <p className="pt-10 text-7xl underline decoration-indigo-500">
+        <p className="pt-10 text-7xl underline decoration-indigo-500 bg-gradient-to-r from-indigo-500 via-green-500 to-red-500 inline-block text-transparent bg-clip-text">
           {dictionary[params.lang]?.homeHeader}
         </p>
-        <p className="py-6 text-2xl underline decoration-sky-500">
+        <br />
+        <p className="py-6 text-2xl underline decoration-sky-500 bg-gradient-to-r from-red-500 via-yellow-500 to-orange-500 inline-block text-transparent bg-clip-text">
           {dictionary[params.lang]?.homeContent}
         </p>
         <p className="py-6 text-xl ">{dictionary[params.lang]?.aboutHeader}</p>

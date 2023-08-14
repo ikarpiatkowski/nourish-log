@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import Sidebar from '@/components/Sidebar';
 import { Metadata } from 'next';
-import Providers from '@/components/providers';
 import Navbar from '@/components/Navbar';
+import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Nourish Log',
@@ -20,13 +20,13 @@ export default function RootLayout({
     <html lang="en" className="h-full dark" style={{ colorScheme: 'dark' }}>
       <ClerkProvider>
         <body className={`flex h-full ${inter.className}`}>
-          <Providers>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Sidebar />
             <div className="flex flex-col w-full">
               <Navbar />
               {children}
             </div>
-          </Providers>
+          </ThemeProvider>
         </body>
       </ClerkProvider>
     </html>
