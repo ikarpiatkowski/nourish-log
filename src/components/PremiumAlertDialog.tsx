@@ -11,19 +11,18 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 
-export function AlertDialogPremium() {
+export function PremiumAlertDialog() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button>Full access</Button>
+        <Button variant="outline">👑 Premium</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>
-            Do you want to get full access to Nourish Log?
-          </AlertDialogTitle>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            Premium cost 5€ per month. You can cancel at any time.
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

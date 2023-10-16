@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+// import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 export default function Search() {
@@ -16,7 +16,7 @@ export default function Search() {
   };
   return (
     <form onSubmit={handleSearch} className="w-full p-10">
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-3">
         <Input
           type="text"
           placeholder="Search for food"
@@ -25,8 +25,7 @@ export default function Search() {
           onChange={(e) => setSearch(e.target.value)}
         />
         <Button type="submit" className="">
-          <MagnifyingGlassIcon className="h-5 w-5" />
-          Search
+          {/* <MagnifyingGlassIcon className="h-5 w-5" /> */}🔍 Search
         </Button>
       </div>
     </form>

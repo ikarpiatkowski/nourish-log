@@ -1,4 +1,5 @@
 import supabase from '@/utils/supabase';
+import { Progress } from '@/components/ui/progress';
 type SearchResult = {
   name: string;
   calories: number;
@@ -38,55 +39,37 @@ export default async function ServerSearch({
         totalCarbohydrates += foodData.food[0].carbohydrates_total_g;
         totalFiber += foodData.food[0].fiber_g;
       })}
-      <div className="flex">
-        <div className="flex flex-col">
-          {`Calories (${parseFloat(totalCalories.toFixed(2))} / 2000)`}
-          <progress
-            className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4"
-            value={(totalCalories / 2000) * 100}
-            max="100"
-          ></progress>
+      <main className="flex p-4">
+        <div className="flex flex-col w-44 p-4">
+          {`Calories ${parseFloat(((totalCalories / 2000) * 100).toFixed(0))}%`}
+          <Progress className="mt-4" value={(totalCalories / 2000) * 100} />
         </div>
-        <div className="flex flex-col">
-          {`Fat (${parseFloat(totalFat.toFixed(2))} / 80)`}
-          <progress
-            className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4"
-            value={(totalFat / 80) * 100}
-            max="100"
-          ></progress>
+        <div className="flex flex-col w-44 p-4">
+          {`Fat ${parseFloat(((totalFat / 80) * 100).toFixed(0))}%`}
+          <Progress className="mt-4" value={(totalFat / 80) * 100} />
         </div>
-        <div className="flex flex-col">
-          {`Protein (${parseFloat(totalProtein.toFixed(2))} / 100)`}
-          <progress
-            className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4"
-            value={(totalProtein / 100) * 100}
-            max="100"
-          ></progress>
+        <div className="flex flex-col w-44 p-4">
+          {`Protein ${parseFloat(((totalProtein / 100) * 100).toFixed(0))}%`}
+          <Progress className="mt-4" value={(totalProtein / 100) * 100} />
         </div>
-        <div className="flex flex-col">
-          {`Carbs (${parseFloat(totalCarbohydrates.toFixed(2))} / 180)`}
-          <progress
-            className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4"
-            value={(totalCarbohydrates / 180) * 100}
-            max="100"
-          ></progress>
+        <div className="flex flex-col w-44 p-4">
+          {`Carbs ${parseFloat(
+            ((totalCarbohydrates / 180) * 100).toFixed(0)
+          )}%`}
+          <Progress className="mt-4" value={(totalCarbohydrates / 180) * 100} />
         </div>
-        <div className="flex flex-col">
-          {`Fiber (${parseFloat(totalFiber.toFixed(2))} / 20)`}
-          <progress
-            className="w-40 bg-gray-200 rounded-full h-4 dark:bg-gray-700 m-4"
-            value={(totalFiber / 20) * 100}
-            max="100"
-          ></progress>
+        <div className="flex flex-col w-44 p-4">
+          {`Fiber ${parseFloat(((totalFiber / 20) * 100).toFixed(0))}%`}
+          <Progress className="mt-4" value={(totalFiber / 20) * 100} />
         </div>
-      </div>
+      </main>
       <div className="flex flex-wrap">
         {data!.map((foodData: FoodData) => (
           <div
             key={foodData.food[0].name}
-            className="rounded-3xl bg-neutral-300 dark:bg-neutral-600 m-4 p-2 w-64"
+            className="rounded-3xl bg-slate-300 dark:bg-slate-600 m-4 p-2 w-64"
           >
-            <p className="rounded-3xl bg-neutral-400 dark:bg-neutral-700 font-bold text-center capitalize">
+            <p className="rounded-3xl bg-slate-400 dark:bg-slate-800 font-bold text-center capitalize">
               {foodData.food[0].name} 🧧
             </p>
             <p>🍕 Calories: {foodData.food[0].calories}</p>

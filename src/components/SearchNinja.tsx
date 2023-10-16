@@ -1,7 +1,7 @@
 'use client';
 import supabase from '@/utils/supabase';
 import { useAuth } from '@clerk/nextjs';
-import { ClipboardIcon } from '@heroicons/react/24/outline';
+// import { ClipboardIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import { FormEvent, useEffect, useState } from 'react';
 type SearchResult = {
@@ -85,7 +85,7 @@ export default function SearchNinja({
       ))}
       <form onSubmit={handleSubmit}>
         <button className={style} type="submit">
-          <ClipboardIcon className="h-6 w-6" />
+          {/* <ClipboardIcon className="h-6 w-6" /> */}
           Save
         </button>
       </form>

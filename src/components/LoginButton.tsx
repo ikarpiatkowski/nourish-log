@@ -4,7 +4,7 @@ export default function LoginButton() {
   const user = useUser();
   return (
     <>
-      <div className="justify-center items-center flex flex-col mb-5 w-full gap-3">
+      <div className="justify-center items-center">
         {!user.isSignedIn ? (
           <SignInButton />
         ) : (
@@ -13,8 +13,8 @@ export default function LoginButton() {
               appearance={{
                 elements: {
                   userButtonAvatarBox: {
-                    width: 56,
-                    height: 56,
+                    width: 40,
+                    height: 40,
                   },
                 },
               }}

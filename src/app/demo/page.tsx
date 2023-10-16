@@ -28,9 +28,9 @@ export default async function FoodPage() {
           {data!.map((foodData: FoodData) => (
             <div
               key={foodData.food_noutrition[0].name}
-              className="rounded-3xl bg-neutral-300 dark:bg-neutral-600 m-4 p-2 w-64"
+              className="rounded-3xl bg-slate-300 dark:bg-slate-600 m-4 p-2 w-64"
             >
-              <p className="rounded-3xl font-bold bg-neutral-400 dark:bg-neutral-700 text-center capitalize">
+              <p className="rounded-3xl font-bold bg-slate-400 dark:bg-slate-700 text-center capitalize">
                 {foodData.food_noutrition[0].name} 🧧
               </p>
               <p>🍕 Calories: {foodData.food_noutrition[0].calories}</p>
